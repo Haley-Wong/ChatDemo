@@ -1,0 +1,30 @@
+
+/* Class = "UITabBarItem"; title = "设置"; ObjectID = "1dP-c0-swP"; */
+"1dP-c0-swP.title" = "设置";
+
+/* Class = "UIButton"; normalTitle = "登录"; ObjectID = "Dw7-cW-mLA"; */
+"Dw7-cW-mLA.normalTitle" = "登录";
+
+/* Class = "UIButton"; normalTitle = "注册"; ObjectID = "IPm-Hy-tBi"; */
+"IPm-Hy-tBi.normalTitle" = "注册";
+
+/* Class = "UITextField"; placeholder = "密码"; ObjectID = "LPX-x0-u7W"; */
+"LPX-x0-u7W.placeholder" = "密码";
+
+/* Class = "UINavigationItem"; title = "通讯录"; ObjectID = "Ru0-QQ-fjH"; */
+"Ru0-QQ-fjH.title" = "通讯录";
+
+/* Class = "UINavigationItem"; title = "设置"; ObjectID = "X5K-6d-O6m"; */
+"X5K-6d-O6m.title" = "设置";
+
+/* Class = "UINavigationItem"; title = "注册"; ObjectID = "Z2S-aT-Qf7"; */
+"Z2S-aT-Qf7.title" = "注册";
+
+/* Class = "UITabBarItem"; title = "通讯录"; ObjectID = "uGJ-2Y-C4O"; */
+"uGJ-2Y-C4O.title" = "通讯录";
+
+/* Class = "UITextField"; placeholder = "用户名"; ObjectID = "yq6-r2-CsQ"; */
+"yq6-r2-CsQ.placeholder" = "用户名";
+
+/* Class = "UIButton"; normalTitle = "忘记密码?"; ObjectID = "zje-19-zpg"; */
+"zje-19-zpg.normalTitle" = "忘记密码?";

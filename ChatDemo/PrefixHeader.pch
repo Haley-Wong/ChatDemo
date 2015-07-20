@@ -1,0 +1,27 @@
+//
+//  PrefixHeader.pch
+//  ChatDemo
+//
+//  Created by Joker on 15/7/19.
+//  Copyright (c) 2015年 Mac. All rights reserved.
+//
+
+#ifndef ChatDemo_PrefixHeader_pch
+#define ChatDemo_PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+
+    #import "XMPPFramework.h"
+#endif
+
+
+#define kXMPP_HOST @"127.0.0.1"
+#define kXMPP_PORT 5222
+
+#define kLOGIN_SUCCESS @"kLOGIN_SUCCESS"
+#define kREGIST_RESULT @"kREGIST_RESULT"
+
+#endif
