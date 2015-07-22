@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6103330C1B5EA3B70095FB4A /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6103330B1B5EA3B70095FB4A /* ContactsViewController.m */; };
+		6103330F1B5EA6AA0095FB4A /* AddFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6103330E1B5EA6AA0095FB4A /* AddFriendViewController.m */; };
 		6108507D1B5B6054006067DD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6108507C1B5B6054006067DD /* main.m */; };
 		610850801B5B6054006067DD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6108507F1B5B6054006067DD /* AppDelegate.m */; };
 		610850831B5B6054006067DD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 610850821B5B6054006067DD /* ViewController.m */; };
@@ -168,9 +170,15 @@
 		610852BE1B5B770F006067DD /* tabbar_more_hover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 610852BA1B5B770F006067DD /* tabbar_more_hover@2x.png */; };
 		610852C21B5B7A32006067DD /* JKXMPPTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 610852C11B5B7A32006067DD /* JKXMPPTool.m */; };
 		61674EC61B5CC6EF00FB74BC /* RegistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61674EC51B5CC6EF00FB74BC /* RegistViewController.m */; };
+		61C5FA901B5FE29000076CCC /* wechat.png in Resources */ = {isa = PBXBuildFile; fileRef = 61C5FA8F1B5FE29000076CCC /* wechat.png */; };
+		61C5FA931B5FEE4C00076CCC /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C5FA921B5FEE4C00076CCC /* ChatViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6103330A1B5EA3B70095FB4A /* ContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsViewController.h; sourceTree = "<group>"; };
+		6103330B1B5EA3B70095FB4A /* ContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsViewController.m; sourceTree = "<group>"; };
+		6103330D1B5EA6AA0095FB4A /* AddFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFriendViewController.h; sourceTree = "<group>"; };
+		6103330E1B5EA6AA0095FB4A /* AddFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFriendViewController.m; sourceTree = "<group>"; };
 		610850771B5B6054006067DD /* ChatDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6108507B1B5B6054006067DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6108507C1B5B6054006067DD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -492,6 +500,9 @@
 		610852C31B5B8900006067DD /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		61674EC41B5CC6EF00FB74BC /* RegistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistViewController.h; sourceTree = "<group>"; };
 		61674EC51B5CC6EF00FB74BC /* RegistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistViewController.m; sourceTree = "<group>"; };
+		61C5FA8F1B5FE29000076CCC /* wechat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wechat.png; sourceTree = "<group>"; };
+		61C5FA911B5FEE4C00076CCC /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
+		61C5FA921B5FEE4C00076CCC /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -537,6 +548,12 @@
 				610850821B5B6054006067DD /* ViewController.m */,
 				61674EC41B5CC6EF00FB74BC /* RegistViewController.h */,
 				61674EC51B5CC6EF00FB74BC /* RegistViewController.m */,
+				6103330A1B5EA3B70095FB4A /* ContactsViewController.h */,
+				6103330B1B5EA3B70095FB4A /* ContactsViewController.m */,
+				6103330D1B5EA6AA0095FB4A /* AddFriendViewController.h */,
+				6103330E1B5EA6AA0095FB4A /* AddFriendViewController.m */,
+				61C5FA911B5FEE4C00076CCC /* ChatViewController.h */,
+				61C5FA921B5FEE4C00076CCC /* ChatViewController.m */,
 				610850841B5B6054006067DD /* Main.storyboard */,
 				610850871B5B6054006067DD /* Images.xcassets */,
 				6108507A1B5B6054006067DD /* Supporting Files */,
@@ -566,6 +583,7 @@
 		610850A11B5B64F8006067DD /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				61C5FA8F1B5FE29000076CCC /* wechat.png */,
 				610852B71B5B770F006067DD /* tabbar_mates@2x.png */,
 				610852B81B5B770F006067DD /* tabbar_mates_hover@2x.png */,
 				610852B91B5B770F006067DD /* tabbar_more@2x.png */,
@@ -1539,6 +1557,7 @@
 				610850A71B5B64F8006067DD /* LaunchImage.png in Resources */,
 				610852B51B5B747C006067DD /* Address_IconHl@2x.png in Resources */,
 				610852BB1B5B770F006067DD /* tabbar_mates@2x.png in Resources */,
+				61C5FA901B5FE29000076CCC /* wechat.png in Resources */,
 				610852BE1B5B770F006067DD /* tabbar_more_hover@2x.png in Resources */,
 				610852A71B5B6A49006067DD /* build-libidn.sh in Resources */,
 				610850A61B5B64F8006067DD /* LaunchImage-568h@2x.png in Resources */,
@@ -1605,10 +1624,12 @@
 				610852271B5B6A49006067DD /* XMPPConstants.m in Sources */,
 				610852481B5B6A49006067DD /* XMPPRoom.xcdatamodeld in Sources */,
 				610852541B5B6A49006067DD /* XMPPMUC.m in Sources */,
+				6103330F1B5EA6AA0095FB4A /* AddFriendViewController.m in Sources */,
 				610852441B5B6A49006067DD /* XMPPJabberRPCModule.m in Sources */,
 				610852281B5B6A49006067DD /* XMPPElement.m in Sources */,
 				610852921B5B6A49006067DD /* DDList.m in Sources */,
 				610852621B5B6A49006067DD /* XMPPvCardTempTel.m in Sources */,
+				61C5FA931B5FEE4C00076CCC /* ChatViewController.m in Sources */,
 				6108525D1B5B6A49006067DD /* XMPPvCardTempAdrTypes.m in Sources */,
 				6108529B1B5B6A49006067DD /* DDASLLogger.m in Sources */,
 				6108523E1B5B6A49006067DD /* XMPPRosterMemoryStorage.m in Sources */,
@@ -1653,6 +1674,7 @@
 				6108528B1B5B6A49006067DD /* XMPPMessage+XEP_0224.m in Sources */,
 				6108526B1B5B6A49006067DD /* NSDate+XMPPDateTimeProfiles.m in Sources */,
 				610852471B5B6A49006067DD /* XMPPPrivacy.m in Sources */,
+				6103330C1B5EA3B70095FB4A /* ContactsViewController.m in Sources */,
 				6108524A1B5B6A49006067DD /* XMPPRoomMessageCoreDataStorageObject.m in Sources */,
 				610852911B5B6A49006067DD /* NSXMLElement+XEP_0335.m in Sources */,
 				610852411B5B6A49006067DD /* XMPPSystemInputActivityMonitor.m in Sources */,

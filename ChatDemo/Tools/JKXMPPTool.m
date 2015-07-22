@@ -48,6 +48,19 @@ static JKXMPPTool *_instance;
         _xmppReconnect = [[XMPPReconnect alloc] init];
         [_xmppReconnect activate:self.xmppStream];
         [_xmppReconnect setAutoReconnect:YES];
+        
+        
+         // 3.好友模块 支持我们管理、同步、申请、删除好友
+        _xmppRosterMemoryStorage = [[XMPPRosterMemoryStorage alloc] init];
+        _xmppRoster = [[XMPPRoster alloc] initWithRosterStorage:_xmppRosterMemoryStorage];
+        [_xmppRoster activate:self.xmppStream];
+        
+        //同时给_xmppRosterMemoryStorage 和 _xmppRoster都添加了代理
+        [_xmppRoster addDelegate:self delegateQueue:dispatch_get_main_queue()];
+        //设置好友同步策略,XMPP一旦连接成功，同步好友到本地
+        [_xmppRoster setAutoFetchRoster:YES]; //自动同步，从服务器取出好友
+        //关掉自动接收好友请求，默认开启自动同意
+        [_xmppRoster setAutoAcceptKnownPresenceSubscriptionRequests:NO];
     }
     return _xmppStream;
 }
@@ -73,9 +86,17 @@ static JKXMPPTool *_instance;
     [self.xmppStream connectWithTimeout:XMPPStreamTimeoutNone error:nil];
 }
 
+- (void)addFriend:(XMPPJID *)aJID
+{
+    //这里的nickname是我对它的备注，并非他得个人资料中得nickname
+    [self.xmppRoster addUser:aJID withNickname:@"好友"];
+}
+
 - (void)goOnline
 {
     // 发送一个<presence/> 默认值avaliable 在线 是指服务器收到空的presence 会认为是这个
+    // status ---自定义的内容，可以是任何的。
+    // show 是固定的，有几种类型 dnd、xa、away、chat，在方法XMPPPresence 的intShow中可以看到
     XMPPPresence *presence = [XMPPPresence presence];
     [presence addChild:[DDXMLNode elementWithName:@"status" stringValue:@"我现在很忙"]];
     [presence addChild:[DDXMLNode elementWithName:@"show" stringValue:@"xa"]];
@@ -124,6 +145,74 @@ static JKXMPPTool *_instance;
     [self goOnline];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:kLOGIN_SUCCESS object:nil];
+}
+
+#pragma mark ===== 好友模块 委托=======
+/** 收到出席订阅请求（代表对方想添加自己为好友) */
+- (void)xmppRoster:(XMPPRoster *)sender didReceivePresenceSubscriptionRequest:(XMPPPresence *)presence
+{
+     NSLog(@"didReceivePresenceSubscriptionRequest");
+    //添加好友一定会订阅对方，但是接受订阅不一定要添加对方为好友
+    self.receivePresence = presence;
+    
+    NSString *message = [NSString stringWithFormat:@"【%@】想加你为好友",presence.from.bare];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:message delegate:self cancelButtonTitle:@"拒绝" otherButtonTitles:@"同意", nil];
+    [alertView show];
+    
+    //同意并添加对方为好友
+//    [self.xmppRoster acceptPresenceSubscriptionRequestFrom:presence.from andAddToRoster:YES];
+    //拒绝的方法
+//    [self.xmppRoster rejectPresenceSubscriptionRequestFrom:presence.from];
+}
+
+- (void)xmppStream:(XMPPStream *)sender didReceivePresence:(XMPPPresence *)presence
+{
+    //收到对方取消定阅我得消息
+    if ([presence.type isEqualToString:@"unsubscribe"]) {
+        //从我的本地通讯录中将他移除
+        [self.xmppRoster removeUser:presence.from];
+    }
+}
+
+/**
+ * 开始同步服务器发送过来的自己的好友列表
+ **/
+- (void)xmppRosterDidBeginPopulating:(XMPPRoster *)sender
+{
+    
+}
+
+/**
+ * 同步结束
+ **/
+//收到好友列表IQ会进入的方法，并且已经存入我的存储器
+- (void)xmppRosterDidEndPopulating:(XMPPRoster *)sender
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kXMPP_ROSTER_CHANGE object:nil];
+}
+
+//收到每一个好友
+- (void)xmppRoster:(XMPPRoster *)sender didReceiveRosterItem:(NSXMLElement *)item
+{
+    
+}
+
+// 如果不是初始化同步来的roster,那么会自动存入我的好友存储器
+- (void)xmppRosterDidChange:(XMPPRosterMemoryStorage *)sender
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kXMPP_ROSTER_CHANGE object:nil];
+}
+
+
+#pragma mark - UIAlertViewDelegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0) {
+        NSLog(@"0000");
+        [self.xmppRoster rejectPresenceSubscriptionRequestFrom:_receivePresence.from];
+    } else {
+        [self.xmppRoster acceptPresenceSubscriptionRequestFrom:_receivePresence.from andAddToRoster:YES];
+    }
 }
 
 

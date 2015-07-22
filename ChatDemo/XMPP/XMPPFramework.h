@@ -26,6 +26,10 @@
 
 #import "XMPPReconnect.h"
 #import "XMPPAutoPing.h"
+
+#import "XMPPRoster.h"
+#import "XMPPRosterMemoryStorage.h"  //遵循 XMPPRosterStorage接口
+#import "XMPPUserMemoryStorageObject.h" //遵循 XMPPUser接口
  
 // List the modules you're using here:
 // (the following may not be a complete list)
