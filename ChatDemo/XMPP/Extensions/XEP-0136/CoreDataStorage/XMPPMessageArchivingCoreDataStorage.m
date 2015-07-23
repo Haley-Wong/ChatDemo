@@ -483,6 +483,12 @@ static XMPPMessageArchivingCoreDataStorage *sharedInstance;
 			}
 		}
 	}];
+    
+#warning 当消息已经保存好，通知控制器来取
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:kXMPP_MESSAGE_CHANGE object:nil];
+    });
 }
 
 @end

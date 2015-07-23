@@ -61,6 +61,11 @@ static JKXMPPTool *_instance;
         [_xmppRoster setAutoFetchRoster:YES]; //自动同步，从服务器取出好友
         //关掉自动接收好友请求，默认开启自动同意
         [_xmppRoster setAutoAcceptKnownPresenceSubscriptionRequests:NO];
+        
+        //4.消息模块，这里用单例，不能切换账号登录，否则会出现数据问题。
+        _xmppMessageArchivingCoreDataStorage = [XMPPMessageArchivingCoreDataStorage sharedInstance];
+        _xmppMessageArchiving = [[XMPPMessageArchiving alloc] initWithMessageArchivingStorage:_xmppMessageArchivingCoreDataStorage dispatchQueue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 9)];
+        [_xmppMessageArchiving activate:self.xmppStream];
     }
     return _xmppStream;
 }
@@ -201,6 +206,14 @@ static JKXMPPTool *_instance;
 - (void)xmppRosterDidChange:(XMPPRosterMemoryStorage *)sender
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:kXMPP_ROSTER_CHANGE object:nil];
+}
+
+#pragma mark - Message
+- (void)xmppStream:(XMPPStream *)sender didReceiveMessage:(XMPPMessage *)message
+{
+    NSLog(@"%s--%@",__FUNCTION__, message);
+    //XEP--0136 已经用coreData实现了数据的接收和保存
+    
 }
 
 

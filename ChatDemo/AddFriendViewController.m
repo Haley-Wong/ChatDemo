@@ -35,6 +35,7 @@
     }
     
     [[JKXMPPTool sharedInstance] addFriend:[XMPPJID jidWithUser:username domain:@"im.joker.cn" resource:@"iOS"]];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

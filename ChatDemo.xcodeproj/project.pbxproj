@@ -170,8 +170,14 @@
 		610852BE1B5B770F006067DD /* tabbar_more_hover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 610852BA1B5B770F006067DD /* tabbar_more_hover@2x.png */; };
 		610852C21B5B7A32006067DD /* JKXMPPTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 610852C11B5B7A32006067DD /* JKXMPPTool.m */; };
 		61674EC61B5CC6EF00FB74BC /* RegistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61674EC51B5CC6EF00FB74BC /* RegistViewController.m */; };
+		616A1B9B1B612CA600471C09 /* Shot1.png in Resources */ = {isa = PBXBuildFile; fileRef = 616A1B981B612CA600471C09 /* Shot1.png */; };
+		616A1B9C1B612CA600471C09 /* Shot2.png in Resources */ = {isa = PBXBuildFile; fileRef = 616A1B991B612CA600471C09 /* Shot2.png */; };
+		616A1B9F1B6131DE00471C09 /* lufei.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 616A1B9E1B6131DE00471C09 /* lufei.jpeg */; };
+		616A1BA11B6131E400471C09 /* aisi.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 616A1BA01B6131E400471C09 /* aisi.jpg */; };
 		61C5FA901B5FE29000076CCC /* wechat.png in Resources */ = {isa = PBXBuildFile; fileRef = 61C5FA8F1B5FE29000076CCC /* wechat.png */; };
 		61C5FA931B5FEE4C00076CCC /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C5FA921B5FEE4C00076CCC /* ChatViewController.m */; };
+		61ECB0901B614B9200D1DCB6 /* Shot3.png in Resources */ = {isa = PBXBuildFile; fileRef = 61ECB08E1B614B9200D1DCB6 /* Shot3.png */; };
+		61ECB0911B614B9200D1DCB6 /* Shot4.png in Resources */ = {isa = PBXBuildFile; fileRef = 61ECB08F1B614B9200D1DCB6 /* Shot4.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -500,9 +506,15 @@
 		610852C31B5B8900006067DD /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		61674EC41B5CC6EF00FB74BC /* RegistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistViewController.h; sourceTree = "<group>"; };
 		61674EC51B5CC6EF00FB74BC /* RegistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistViewController.m; sourceTree = "<group>"; };
+		616A1B981B612CA600471C09 /* Shot1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Shot1.png; sourceTree = "<group>"; };
+		616A1B991B612CA600471C09 /* Shot2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Shot2.png; sourceTree = "<group>"; };
+		616A1B9E1B6131DE00471C09 /* lufei.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lufei.jpeg; sourceTree = "<group>"; };
+		616A1BA01B6131E400471C09 /* aisi.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = aisi.jpg; sourceTree = "<group>"; };
 		61C5FA8F1B5FE29000076CCC /* wechat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wechat.png; sourceTree = "<group>"; };
 		61C5FA911B5FEE4C00076CCC /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
 		61C5FA921B5FEE4C00076CCC /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
+		61ECB08E1B614B9200D1DCB6 /* Shot3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Shot3.png; sourceTree = "<group>"; };
+		61ECB08F1B614B9200D1DCB6 /* Shot4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Shot4.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -583,7 +595,10 @@
 		610850A11B5B64F8006067DD /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				616A1B971B612C9B00471C09 /* screenShot */,
 				61C5FA8F1B5FE29000076CCC /* wechat.png */,
+				616A1B9E1B6131DE00471C09 /* lufei.jpeg */,
+				616A1BA01B6131E400471C09 /* aisi.jpg */,
 				610852B71B5B770F006067DD /* tabbar_mates@2x.png */,
 				610852B81B5B770F006067DD /* tabbar_mates_hover@2x.png */,
 				610852B91B5B770F006067DD /* tabbar_more@2x.png */,
@@ -1493,6 +1508,17 @@
 			path = Tools;
 			sourceTree = "<group>";
 		};
+		616A1B971B612C9B00471C09 /* screenShot */ = {
+			isa = PBXGroup;
+			children = (
+				616A1B981B612CA600471C09 /* Shot1.png */,
+				616A1B991B612CA600471C09 /* Shot2.png */,
+				61ECB08E1B614B9200D1DCB6 /* Shot3.png */,
+				61ECB08F1B614B9200D1DCB6 /* Shot4.png */,
+			);
+			path = screenShot;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1551,17 +1577,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				610852BC1B5B770F006067DD /* tabbar_mates_hover@2x.png in Resources */,
+				616A1BA11B6131E400471C09 /* aisi.jpg in Resources */,
 				610850861B5B6054006067DD /* Main.storyboard in Resources */,
 				610850A91B5B64F8006067DD /* LoginBackground@2x.png in Resources */,
 				610850A81B5B64F8006067DD /* LaunchImage@2x.png in Resources */,
 				610850A71B5B64F8006067DD /* LaunchImage.png in Resources */,
 				610852B51B5B747C006067DD /* Address_IconHl@2x.png in Resources */,
 				610852BB1B5B770F006067DD /* tabbar_mates@2x.png in Resources */,
+				61ECB0911B614B9200D1DCB6 /* Shot4.png in Resources */,
 				61C5FA901B5FE29000076CCC /* wechat.png in Resources */,
+				61ECB0901B614B9200D1DCB6 /* Shot3.png in Resources */,
 				610852BE1B5B770F006067DD /* tabbar_more_hover@2x.png in Resources */,
 				610852A71B5B6A49006067DD /* build-libidn.sh in Resources */,
 				610850A61B5B64F8006067DD /* LaunchImage-568h@2x.png in Resources */,
+				616A1B9F1B6131DE00471C09 /* lufei.jpeg in Resources */,
+				616A1B9B1B612CA600471C09 /* Shot1.png in Resources */,
 				610852A21B5B6A49006067DD /* README.txt in Resources */,
+				616A1B9C1B612CA600471C09 /* Shot2.png in Resources */,
 				610852B61B5B747C006067DD /* Address_IconHl@3x.png in Resources */,
 				610850881B5B6054006067DD /* Images.xcassets in Resources */,
 				610852BD1B5B770F006067DD /* tabbar_more@2x.png in Resources */,

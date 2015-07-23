@@ -18,6 +18,9 @@
 @property (nonatomic, strong) XMPPRoster *xmppRoster;
 @property (nonatomic, strong) XMPPRosterMemoryStorage *xmppRosterMemoryStorage;
 
+@property (nonatomic, strong) XMPPMessageArchiving *xmppMessageArchiving;
+@property (nonatomic, strong) XMPPMessageArchivingCoreDataStorage *xmppMessageArchivingCoreDataStorage;
+
 @property (nonatomic, assign) BOOL  xmppNeedRegister;
 @property (nonatomic, copy)   NSString *myPassword;
 
