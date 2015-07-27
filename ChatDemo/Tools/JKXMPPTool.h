@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface JKXMPPTool : NSObject<XMPPStreamDelegate,UIAlertViewDelegate>
+@interface JKXMPPTool : NSObject<XMPPStreamDelegate,UIAlertViewDelegate,XMPPRosterDelegate,XMPPRosterMemoryStorageDelegate,XMPPIncomingFileTransferDelegate>
 
 @property (nonatomic, strong) XMPPStream *xmppStream;
 // 模块
@@ -20,6 +20,8 @@
 
 @property (nonatomic, strong) XMPPMessageArchiving *xmppMessageArchiving;
 @property (nonatomic, strong) XMPPMessageArchivingCoreDataStorage *xmppMessageArchivingCoreDataStorage;
+
+@property (nonatomic, strong) XMPPIncomingFileTransfer *xmppIncomingFileTransfer;
 
 @property (nonatomic, assign) BOOL  xmppNeedRegister;
 @property (nonatomic, copy)   NSString *myPassword;

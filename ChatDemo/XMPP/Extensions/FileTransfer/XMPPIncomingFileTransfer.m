@@ -49,7 +49,7 @@ NSString *const XMPPIncomingFileTransferErrorDomain = @"XMPPIncomingFileTransfer
 @interface XMPPIncomingFileTransfer () {
   XMPPIFTState _transferState;
 
-  XMPPJID *_senderJID;
+//  XMPPJID *_senderJID;
 
   NSString *_streamhostsQueryId;
   NSString *_streamhostUsed;

@@ -21,6 +21,8 @@
 */
 @property (nonatomic, assign) BOOL autoAcceptFileTransfers;
 
+@property (nonatomic, strong) XMPPJID *senderJID;
+
 /**
 * Sends a response to the file transfer initiator accepting the Stream
 * Initiation offer. It will automatically determine the best transfer method

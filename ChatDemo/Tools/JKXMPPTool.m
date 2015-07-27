@@ -66,6 +66,12 @@ static JKXMPPTool *_instance;
         _xmppMessageArchivingCoreDataStorage = [XMPPMessageArchivingCoreDataStorage sharedInstance];
         _xmppMessageArchiving = [[XMPPMessageArchiving alloc] initWithMessageArchivingStorage:_xmppMessageArchivingCoreDataStorage dispatchQueue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 9)];
         [_xmppMessageArchiving activate:self.xmppStream];
+        
+        //5、文件接收
+        _xmppIncomingFileTransfer = [[XMPPIncomingFileTransfer alloc] initWithDispatchQueue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)];
+        [_xmppIncomingFileTransfer activate:self.xmppStream];
+        [_xmppIncomingFileTransfer addDelegate:self delegateQueue:dispatch_get_main_queue()];
+        [_xmppIncomingFileTransfer setAutoAcceptFileTransfers:YES];
     }
     return _xmppStream;
 }
@@ -119,7 +125,6 @@ static JKXMPPTool *_instance;
 //这个是xml流初始化成功
 - (void)xmppStreamDidConnect:(XMPPStream *)sender
 {
-    NSLog(@"%s",__func__);
     if (self.xmppNeedRegister) {
         BOOL result = [self.xmppStream registerWithPassword:self.myPassword error:nil];
         NSNumber *number = [NSNumber numberWithBool:result];
@@ -145,8 +150,6 @@ static JKXMPPTool *_instance;
 //登录成功
 - (void)xmppStreamDidAuthenticate:(XMPPStream *)sender
 {
-    NSLog(@"%s",__func__);
-    
     [self goOnline];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:kLOGIN_SUCCESS object:nil];
@@ -156,18 +159,12 @@ static JKXMPPTool *_instance;
 /** 收到出席订阅请求（代表对方想添加自己为好友) */
 - (void)xmppRoster:(XMPPRoster *)sender didReceivePresenceSubscriptionRequest:(XMPPPresence *)presence
 {
-     NSLog(@"didReceivePresenceSubscriptionRequest");
     //添加好友一定会订阅对方，但是接受订阅不一定要添加对方为好友
     self.receivePresence = presence;
     
     NSString *message = [NSString stringWithFormat:@"【%@】想加你为好友",presence.from.bare];
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:message delegate:self cancelButtonTitle:@"拒绝" otherButtonTitles:@"同意", nil];
     [alertView show];
-    
-    //同意并添加对方为好友
-//    [self.xmppRoster acceptPresenceSubscriptionRequestFrom:presence.from andAddToRoster:YES];
-    //拒绝的方法
-//    [self.xmppRoster rejectPresenceSubscriptionRequestFrom:presence.from];
 }
 
 - (void)xmppStream:(XMPPStream *)sender didReceivePresence:(XMPPPresence *)presence
@@ -208,6 +205,44 @@ static JKXMPPTool *_instance;
     [[NSNotificationCenter defaultCenter] postNotificationName:kXMPP_ROSTER_CHANGE object:nil];
 }
 
+#pragma mark ===== 文件接收=======
+/** 是否同意对方发文件给我 */
+- (void)xmppIncomingFileTransfer:(XMPPIncomingFileTransfer *)sender didReceiveSIOffer:(XMPPIQ *)offer
+{
+    NSLog(@"%s",__FUNCTION__);
+    //弹出一个是否接收的询问框
+//    [self.xmppIncomingFileTransfer acceptSIOffer:offer];
+}
+
+- (void)xmppIncomingFileTransfer:(XMPPIncomingFileTransfer *)sender didSucceedWithData:(NSData *)data named:(NSString *)name
+{
+    XMPPJID *jid = [sender.senderJID copy];
+    NSLog(@"%s",__FUNCTION__);
+    //在这个方法里面，我们通过带外来传输的文件
+    //因此我们的消息同步器，不会帮我们自动生成Message,因此我们需要手动存储message
+    //根据文件后缀名，判断文件我们是否能够处理，如果不能处理则直接显示。
+    //图片 音频 （.wav,.mp3,.mp4)
+    NSString *extension = [name pathExtension];
+    if (![@"wav" isEqualToString:extension]) {
+        return;
+    }
+    //创建一个XMPPMessage对象,message必须要有from
+    XMPPMessage *message = [XMPPMessage messageWithType:@"chat" to:jid];
+    //将这个文件的发送者添加到Message的from
+    [message addAttributeWithName:@"from" stringValue:sender.senderJID.bare];
+    [message addSubject:@"audio"];
+    
+    //保存data
+    NSString *path =  [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    path = [path stringByAppendingPathComponent:[XMPPStream generateUUID]];
+    path = [path stringByAppendingPathExtension:@"wav"];
+    [data writeToFile:path atomically:YES];
+    
+    [message addBody:path.lastPathComponent];
+    
+    [self.xmppMessageArchivingCoreDataStorage archiveMessage:message outgoing:NO xmppStream:self.xmppStream];
+}
+
 #pragma mark - Message
 - (void)xmppStream:(XMPPStream *)sender didReceiveMessage:(XMPPMessage *)message
 {
@@ -215,7 +250,6 @@ static JKXMPPTool *_instance;
     //XEP--0136 已经用coreData实现了数据的接收和保存
     
 }
-
 
 #pragma mark - UIAlertViewDelegate
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex

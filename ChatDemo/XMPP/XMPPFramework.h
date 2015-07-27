@@ -36,6 +36,12 @@
 #import "XMPPMessageArchivingCoreDataStorage.h"
 #import "XMPPMessageArchiving_Contact_CoreDataObject.h" //最近联系人
 #import "XMPPMessageArchiving_Message_CoreDataObject.h"
+
+//文件传输
+//接收文件
+#import "XMPPIncomingFileTransfer.h"
+//发送文件
+#import "XMPPOutgoingFileTransfer.h"
  
 // List the modules you're using here:
 // (the following may not be a complete list)

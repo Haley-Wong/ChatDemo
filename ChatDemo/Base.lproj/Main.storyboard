@@ -340,7 +340,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="10002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="接收到的消息" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="geP-o4-aVr">
-                                                    <rect key="frame" x="55" y="19" width="2815" height="21"/>
+                                                    <rect key="frame" x="55" y="19" width="3135" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -443,6 +443,11 @@
                                         <state key="normal" title="语音">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="cancelRecord:" destination="AiV-EO-NrC" eventType="touchUpOutside" id="gXs-b5-iUI"/>
+                                            <action selector="sendRecord:" destination="AiV-EO-NrC" eventType="touchUpInside" id="KLr-dY-cG7"/>
+                                            <action selector="startRecord:" destination="AiV-EO-NrC" eventType="touchDown" id="e22-Lm-BAE"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zH3-h4-N7N">
                                         <rect key="frame" x="266" y="5" width="46" height="30"/>
