@@ -178,6 +178,10 @@
 		61C5FA931B5FEE4C00076CCC /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C5FA921B5FEE4C00076CCC /* ChatViewController.m */; };
 		61ECB0901B614B9200D1DCB6 /* Shot3.png in Resources */ = {isa = PBXBuildFile; fileRef = 61ECB08E1B614B9200D1DCB6 /* Shot3.png */; };
 		61ECB0911B614B9200D1DCB6 /* Shot4.png in Resources */ = {isa = PBXBuildFile; fileRef = 61ECB08F1B614B9200D1DCB6 /* Shot4.png */; };
+		B95143C41D7D6F5200C57529 /* tabbar_disc@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B95143C21D7D6F5200C57529 /* tabbar_disc@2x.png */; };
+		B95143C51D7D6F5200C57529 /* tabbar_disc_hover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B95143C31D7D6F5200C57529 /* tabbar_disc_hover@2x.png */; };
+		B95143C81D7D715100C57529 /* RoomsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B95143C71D7D715100C57529 /* RoomsViewController.m */; };
+		B95143CB1D7D759F00C57529 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B95143CA1D7D759F00C57529 /* SettingViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -515,6 +519,12 @@
 		61C5FA921B5FEE4C00076CCC /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 		61ECB08E1B614B9200D1DCB6 /* Shot3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Shot3.png; sourceTree = "<group>"; };
 		61ECB08F1B614B9200D1DCB6 /* Shot4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Shot4.png; sourceTree = "<group>"; };
+		B95143C21D7D6F5200C57529 /* tabbar_disc@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_disc@2x.png"; sourceTree = "<group>"; };
+		B95143C31D7D6F5200C57529 /* tabbar_disc_hover@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_disc_hover@2x.png"; sourceTree = "<group>"; };
+		B95143C61D7D715100C57529 /* RoomsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomsViewController.h; sourceTree = "<group>"; };
+		B95143C71D7D715100C57529 /* RoomsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomsViewController.m; sourceTree = "<group>"; };
+		B95143C91D7D759F00C57529 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		B95143CA1D7D759F00C57529 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -562,10 +572,14 @@
 				61674EC51B5CC6EF00FB74BC /* RegistViewController.m */,
 				6103330A1B5EA3B70095FB4A /* ContactsViewController.h */,
 				6103330B1B5EA3B70095FB4A /* ContactsViewController.m */,
+				B95143C61D7D715100C57529 /* RoomsViewController.h */,
+				B95143C71D7D715100C57529 /* RoomsViewController.m */,
 				6103330D1B5EA6AA0095FB4A /* AddFriendViewController.h */,
 				6103330E1B5EA6AA0095FB4A /* AddFriendViewController.m */,
 				61C5FA911B5FEE4C00076CCC /* ChatViewController.h */,
 				61C5FA921B5FEE4C00076CCC /* ChatViewController.m */,
+				B95143C91D7D759F00C57529 /* SettingViewController.h */,
+				B95143CA1D7D759F00C57529 /* SettingViewController.m */,
 				610850841B5B6054006067DD /* Main.storyboard */,
 				610850871B5B6054006067DD /* Images.xcassets */,
 				6108507A1B5B6054006067DD /* Supporting Files */,
@@ -601,6 +615,8 @@
 				616A1BA01B6131E400471C09 /* aisi.jpg */,
 				610852B71B5B770F006067DD /* tabbar_mates@2x.png */,
 				610852B81B5B770F006067DD /* tabbar_mates_hover@2x.png */,
+				B95143C21D7D6F5200C57529 /* tabbar_disc@2x.png */,
+				B95143C31D7D6F5200C57529 /* tabbar_disc_hover@2x.png */,
 				610852B91B5B770F006067DD /* tabbar_more@2x.png */,
 				610852BA1B5B770F006067DD /* tabbar_more_hover@2x.png */,
 				610852B31B5B747C006067DD /* Address_IconHl@2x.png */,
@@ -1585,6 +1601,7 @@
 				610852B51B5B747C006067DD /* Address_IconHl@2x.png in Resources */,
 				610852BB1B5B770F006067DD /* tabbar_mates@2x.png in Resources */,
 				61ECB0911B614B9200D1DCB6 /* Shot4.png in Resources */,
+				B95143C41D7D6F5200C57529 /* tabbar_disc@2x.png in Resources */,
 				61C5FA901B5FE29000076CCC /* wechat.png in Resources */,
 				61ECB0901B614B9200D1DCB6 /* Shot3.png in Resources */,
 				610852BE1B5B770F006067DD /* tabbar_more_hover@2x.png in Resources */,
@@ -1593,6 +1610,7 @@
 				616A1B9F1B6131DE00471C09 /* lufei.jpeg in Resources */,
 				616A1B9B1B612CA600471C09 /* Shot1.png in Resources */,
 				610852A21B5B6A49006067DD /* README.txt in Resources */,
+				B95143C51D7D6F5200C57529 /* tabbar_disc_hover@2x.png in Resources */,
 				616A1B9C1B612CA600471C09 /* Shot2.png in Resources */,
 				610852B61B5B747C006067DD /* Address_IconHl@3x.png in Resources */,
 				610850881B5B6054006067DD /* Images.xcassets in Resources */,
@@ -1642,6 +1660,7 @@
 				6108529F1B5B6A49006067DD /* DDContextFilterLogFormatter.m in Sources */,
 				610852851B5B6A49006067DD /* XMPPPing.m in Sources */,
 				610850801B5B6054006067DD /* AppDelegate.m in Sources */,
+				B95143CB1D7D759F00C57529 /* SettingViewController.m in Sources */,
 				610852451B5B6A49006067DD /* XMPPIQ+LastActivity.m in Sources */,
 				6108526A1B5B6A49006067DD /* XMPPRegistration.m in Sources */,
 				610852641B5B6A49006067DD /* XMPPResultSet.m in Sources */,
@@ -1702,6 +1721,7 @@
 				6108522D1B5B6A49006067DD /* XMPPParser.m in Sources */,
 				610852521B5B6A49006067DD /* XMPPRoomOccupantMemoryStorageObject.m in Sources */,
 				610852491B5B6A49006067DD /* XMPPRoomCoreDataStorage.m in Sources */,
+				B95143C81D7D715100C57529 /* RoomsViewController.m in Sources */,
 				610852971B5B6A49006067DD /* XMPPStringPrep.m in Sources */,
 				6108528B1B5B6A49006067DD /* XMPPMessage+XEP_0224.m in Sources */,
 				6108526B1B5B6A49006067DD /* NSDate+XMPPDateTimeProfiles.m in Sources */,

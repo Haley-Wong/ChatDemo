@@ -56,7 +56,7 @@
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:message delegate:nil cancelButtonTitle:@"我知道了" otherButtonTitles:nil];
         [alertView show];
     } else {
-        [[JKXMPPTool sharedInstance] registerWithJID:[XMPPJID jidWithUser:username domain:@"im.joker.cn" resource:@"iOS"] andPassword:password];
+        [[JKXMPPTool sharedInstance] registerWithJID:[XMPPJID jidWithUser:username domain:kXMPP_DOMAIN resource:kXMPP_RESOURCE] andPassword:password];
     }
 }
 - (IBAction)cancelClick:(id)sender {

@@ -34,4 +34,9 @@
 
 - (void)addFriend:(XMPPJID *)aJID;
 
+/**
+ *  退出登录
+ */
+- (void)logout;
+
 @end

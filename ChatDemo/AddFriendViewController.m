@@ -34,7 +34,7 @@
         return;
     }
     
-    [[JKXMPPTool sharedInstance] addFriend:[XMPPJID jidWithUser:username domain:@"im.joker.cn" resource:@"iOS"]];
+    [[JKXMPPTool sharedInstance] addFriend:[XMPPJID jidWithUser:username domain:kXMPP_DOMAIN resource:kXMPP_RESOURCE]];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

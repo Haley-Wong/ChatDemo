@@ -19,13 +19,17 @@
 
 
 #define kXMPP_HOST @"127.0.0.1"
-#define kXMPP_PORT 5222
+#define kXMPP_PORT      5222
+#define kXMPP_DOMAIN    @"im.joker.cn"
+#define kXMPP_SUBDOMAIN @"group"
+#define kXMPP_RESOURCE  @"iOS"
 
 //*********************** 通知 *****************
 #define kLOGIN_SUCCESS      @"kLOGIN_SUCCESS"
 #define kREGIST_RESULT      @"kREGIST_RESULT"
 #define kXMPP_ROSTER_CHANGE @"kXMPP_ROSTER_CHANGE"
 #define kXMPP_MESSAGE_CHANGE @"kXMPP_MESSAGE_CHANGE"
+#define kXMPP_GET_GROUPS     @"kXMPP_GET_GROUPS"
 
 #define kScreenHeight [UIScreen mainScreen].bounds.size.height
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width

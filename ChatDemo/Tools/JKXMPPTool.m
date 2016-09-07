@@ -8,6 +8,12 @@
 
 #import "JKXMPPTool.h"
 
+@interface JKXMPPTool ()
+
+@property (strong, nonatomic)   NSMutableDictionary            *blockDict;  /**< 存放block的字典 */
+
+@end
+
 @implementation JKXMPPTool
 
 static JKXMPPTool *_instance;
@@ -16,6 +22,7 @@ static JKXMPPTool *_instance;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _instance = [JKXMPPTool new];
+        _instance.blockDict = [NSMutableDictionary dictionary];
     });
     
     return _instance;
@@ -113,6 +120,22 @@ static JKXMPPTool *_instance;
     [presence addChild:[DDXMLNode elementWithName:@"show" stringValue:@"xa"]];
     
     [self.xmppStream sendElement:presence];
+}
+
+/**
+ *  退出登录
+ */
+- (void)logout
+{
+    [self.xmppStream disconnect];
+    [self.xmppStream removeDelegate:self];
+    self.xmppReconnect.autoReconnect = NO;
+    [self.xmppReconnect deactivate];
+    [self.xmppAutoPing deactivate];
+    [self.xmppRoster deactivate];
+    [self.xmppMessageArchiving deactivate];
+    [self.xmppIncomingFileTransfer deactivate];
+    self.xmppStream = nil;
 }
 
 #pragma mark ===== XMPPStream delegate =======
@@ -249,6 +272,36 @@ static JKXMPPTool *_instance;
     NSLog(@"%s--%@",__FUNCTION__, message);
     //XEP--0136 已经用coreData实现了数据的接收和保存
     
+}
+
+- (BOOL)xmppStream:(XMPPStream *)sender didReceiveIQ:(XMPPIQ *)iq
+{
+    NSLog(@"iq:%@",iq);
+    // 以下两个判断其实只需要有一个就够了
+    NSString *elementID = iq.elementID;
+    if (![elementID isEqualToString:@"getMyRooms"]) {
+        return YES;
+    }
+    
+    NSArray *results = [iq elementsForXmlns:@"http://jabber.org/protocol/disco#items"];
+    if (results.count < 1) {
+        return YES;
+    }
+    
+    NSMutableArray *array = [NSMutableArray array];
+    for (DDXMLElement *element in iq.children) {
+        if ([element.name isEqualToString:@"query"]) {
+            for (DDXMLElement *item in element.children) {
+                if ([item.name isEqualToString:@"item"]) {
+                    [array addObject:item];          //array  就是你的群列表
+                    
+                }
+            }
+        }
+    }
+    [[NSNotificationCenter defaultCenter] postNotificationName:kXMPP_GET_GROUPS object:array];
+    
+    return YES;
 }
 
 #pragma mark - UIAlertViewDelegate
